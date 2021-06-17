@@ -4,6 +4,4 @@ require_relative 'configuration'
 require_relative 'network'
 
 require_relative 'minecraft/version'
-
-module Minecraft
-end
+require_relative 'minecraft/cli'

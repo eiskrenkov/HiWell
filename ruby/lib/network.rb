@@ -5,19 +5,21 @@ require 'net/http'
 require 'json'
 
 module Network
+  class Error < StandardError; end
+
   class APIClient
     def self.get(url)
       response = Network.request(:get_response, url)
-      return {} unless response.is_a?(Net::HTTPSuccess)
+      return JSON.parse(response.body, symbolize_names: true) if response.is_a?(Net::HTTPSuccess)
 
-      JSON.parse(response.body, symbolize_names: true)
+      raise(Network::Error, "#{verb.to_s.split('_').first.upcase} #{url} failed with status #{response.code}")
     end
   end
 
   class << self
-    def download(url)
+    def download(url, destination)
       url.split('/').last.tap do |filename|
-        File.write(filename, request(:get, url))
+        File.write("#{destination}/#{filename}", request(:get, url))
       end
     end
 

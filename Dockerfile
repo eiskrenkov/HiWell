@@ -1,20 +1,26 @@
 # Step 1
-FROM ruby:3.0.0-alpine
+FROM ruby:3.0.0-alpine as server-download
 
 ARG MINECRAFT_VERSION
 
-WORKDIR /downloads
-COPY ruby ruby/
+WORKDIR /ruby
+COPY ruby .
 
-RUN ruby ruby/download_server.rb $MINECRAFT_VERSION
+RUN bundle install
+
+RUN chmod +x bin/minecraft_cli && \
+    mkdir /downloads && \
+    bin/minecraft_cli download_server --version $MINECRAFT_VERSION --destination /downloads
 
 # Step 2
-FROM openjdk:17-alpine3.13
+FROM openjdk:17-slim-buster
 
 WORKDIR /minecraft
-COPY --from=0 /downloads/server.jar .
+COPY --from=server-download /downloads/server.jar .
 
-COPY server.properties /minecraft/server.properties
-RUN echo "eula=true" >> eula.txt
+COPY /minecraft .
 
-CMD ["java", "-Xmx1024M", "-Xms1024M", "-jar", "server.jar", "nogui"]
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT ["/minecraft/entrypoint.sh"]
