@@ -4,12 +4,12 @@ services:
   minecraft:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.spigot
       args:
         MINECRAFT_VERSION: '1.17'
     environment:
       JVM_STARTING_MEMORY: 1G
-      JVM_MEMORY_LIMIT: 7G
+      JVM_MEMORY_LIMIT: 2G
     ports:
       - 25565:25565
     volumes:

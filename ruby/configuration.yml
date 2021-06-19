@@ -1,2 +1,5 @@
 minecraft:
-  version_manifest_url: https://launchermeta.mojang.com/mc/game/version_manifest.json
+  vanilla:
+    version_manifest_url: https://launchermeta.mojang.com/mc/game/version_manifest.json
+  spigot:
+    build_tools_url: https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar

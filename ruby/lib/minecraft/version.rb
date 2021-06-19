@@ -31,7 +31,7 @@ module Minecraft
       end
 
       def url
-        URI(Configuration.minecraft.version_manifest_url)
+        URI(Configuration.minecraft.vanilla.version_manifest_url)
       end
     end
 

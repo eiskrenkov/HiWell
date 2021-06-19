@@ -1,0 +1,38 @@
+# Step 1
+FROM ruby:3.0.0-alpine as build-tools-download
+
+ARG MINECRAFT_VERSION
+
+WORKDIR /ruby
+COPY ruby .
+
+RUN bundle install
+
+RUN chmod +x bin/minecraft_cli && \
+    mkdir /downloads && \
+    bin/minecraft_cli download_spigot_build_tools --version $MINECRAFT_VERSION --destination /downloads
+
+# Step 2
+FROM openjdk:16-alpine3.13
+
+ARG MINECRAFT_VERSION
+
+RUN apk add --no-cache git
+
+WORKDIR /minecraft/build
+
+COPY --from=build-tools-download /downloads/BuildTools.jar .
+
+RUN git config --global --unset core.autocrlf & \
+    java -jar BuildTools.jar --rev $MINECRAFT_VERSION
+
+RUN mv spigot-$MINECRAFT_VERSION.jar /minecraft/server.jar
+
+WORKDIR /minecraft
+
+COPY /minecraft .
+
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+
+ENTRYPOINT ["/minecraft/entrypoint.sh"]

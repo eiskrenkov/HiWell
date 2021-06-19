@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo Starting Server with $JVM_STARTING_MEMORY of memory and limit of $JVM_MEMORY_LIMIT
 
