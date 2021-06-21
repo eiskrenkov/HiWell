@@ -3,3 +3,7 @@ minecraft:
     version_manifest_url: https://launchermeta.mojang.com/mc/game/version_manifest.json
   spigot:
     build_tools_url: https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+    spiget:
+      api_host: https://api.spiget.org/v2
+    plugins:
+      skinsrestorer: '14.1.0'

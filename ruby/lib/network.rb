@@ -1,30 +1,33 @@
 # frozen_string_literal: true
 
 require 'uri'
-require 'net/http'
-require 'json'
+require 'open-uri'
+require 'fileutils'
+require 'logger'
+
+require_relative 'network/api_client'
 
 module Network
   class Error < StandardError; end
 
-  class APIClient
-    def self.get(url)
-      response = Network.request(:get_response, url)
-      return JSON.parse(response.body, symbolize_names: true) if response.is_a?(Net::HTTPSuccess)
-
-      raise(Network::Error, "#{verb.to_s.split('_').first.upcase} #{url} failed with status #{response.code}")
-    end
-  end
-
   class << self
-    def download(url, destination)
-      url.split('/').last.tap do |filename|
-        File.write("#{destination}/#{filename}", request(:get, url))
-      end
+    def logger
+      @logger ||= Logger.new(STDOUT)
     end
 
-    def request(verb, url)
-      Net::HTTP.public_send(verb, URI(url))
+    def download(url, destination, filename = nil)
+      filename ||= url.split('/').last
+      file_path = "#{destination}/#{filename}"
+
+      case io = OpenURI.open_uri(url)
+      when StringIO
+        File.open(file_path, 'w') { |f| f.write(io.read) }
+      when Tempfile
+        io.close
+        FileUtils.mv(io.path, file_path)
+      end
+
+      filename
     end
   end
 end

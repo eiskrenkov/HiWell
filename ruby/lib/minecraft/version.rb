@@ -27,11 +27,7 @@ module Minecraft
       private
 
       def data
-        @data ||= Network::APIClient.get(url)
-      end
-
-      def url
-        URI(Configuration.minecraft.vanilla.version_manifest_url)
+        @data ||= Network::APIClient::Mojang.instance.version_manifest
       end
     end
 
@@ -57,7 +53,7 @@ module Minecraft
       end
 
       def data
-        @data ||= Network::APIClient.get(url)
+        @data ||= Network::APIClient::Base.instance.get(url)
       end
     end
 

@@ -8,9 +8,9 @@ COPY ruby .
 
 RUN bundle install
 
-RUN chmod +x bin/minecraft_cli && \
+RUN chmod +x bin/vanilla-cli && \
     mkdir /downloads && \
-    bin/minecraft_cli download_vanilla_server --version $MINECRAFT_VERSION --destination /downloads
+    bin/vanilla-cli download_vanilla_server --version $MINECRAFT_VERSION --destination /downloads
 
 # Step 2
 FROM openjdk:17-slim-buster
