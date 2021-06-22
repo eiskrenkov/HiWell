@@ -1,5 +1,5 @@
-# Step 1
-FROM ruby:3.0.0-alpine as downloads
+# Step 1 - Download required resources
+FROM ruby:3.0.0-alpine AS downloads
 
 ARG MINECRAFT_VERSION
 
@@ -15,21 +15,26 @@ RUN chmod +x bin/spigot-cli && \
 RUN bin/spigot-cli download_spigot_build_tools --version $MINECRAFT_VERSION --destination /downloads && \
     bin/spigot-cli download_spigot_plugins --destination /downloads/plugins
 
-# Step 2
-FROM openjdk:16-alpine3.13
+# Step 2 - Build Spigot
+FROM openjdk:16-alpine3.13 AS build
 
 ARG MINECRAFT_VERSION
 
 RUN apk add --no-cache git
 
-WORKDIR /minecraft/build
+WORKDIR /build
 
 COPY --from=downloads /downloads/BuildTools.jar .
 
 RUN git config --global --unset core.autocrlf & \
     java -jar BuildTools.jar --rev $MINECRAFT_VERSION
 
-RUN mv spigot-$MINECRAFT_VERSION.jar /minecraft/server.jar
+# Step 3 - Run server
+FROM openjdk:16-alpine3.13
+
+ARG MINECRAFT_VERSION
+
+COPY --from=build /build/spigot-$MINECRAFT_VERSION.jar /minecraft/server.jar
 
 WORKDIR /minecraft
 

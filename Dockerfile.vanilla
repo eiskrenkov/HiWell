@@ -1,5 +1,5 @@
 # Step 1
-FROM ruby:3.0.0-alpine as server-download
+FROM ruby:3.0.0-alpine AS server-download
 
 ARG MINECRAFT_VERSION
 

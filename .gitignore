@@ -1,2 +1,10 @@
+# Ruby lockfile
 ruby/Gemfile.lock
-server.jar
+
+# Anything that was downloaded while debugging
+*.jar
+
+# Minecraft sensitive data
+whitelist.json
+ops.json
+banned-ips.json
