@@ -8,3 +8,6 @@ ruby/Gemfile.lock
 whitelist.json
 ops.json
 banned-ips.json
+
+# Docker env file
+.env

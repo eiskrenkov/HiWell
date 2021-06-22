@@ -34,11 +34,11 @@ FROM openjdk:16-alpine3.13
 
 ARG MINECRAFT_VERSION
 
-COPY --from=build /build/spigot-$MINECRAFT_VERSION.jar /minecraft/server.jar
-
 WORKDIR /minecraft
 
 COPY /minecraft .
+
+COPY --from=build /build/spigot-$MINECRAFT_VERSION.jar ./server.jar
 COPY --from=downloads /downloads/plugins ./plugins
 
 COPY entrypoint.sh .
