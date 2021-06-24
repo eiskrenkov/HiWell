@@ -53,7 +53,7 @@ module Minecraft
       end
 
       def data
-        @data ||= Network::APIClient::Base.instance.get(url)
+        @data ||= Network::APIClient::Base.instance.get(url).body_hash
       end
     end
 
