@@ -1,0 +1,13 @@
+root: /root/minecraft-docker
+required_files:
+  - whitelist.json
+  - ops.json
+  - banned-ips.json
+
+stages:
+  production:
+    user: root
+    host: minecraft.iskrenkov.com
+    docker:
+      compose:
+        filename: docker-compose-production.yml
