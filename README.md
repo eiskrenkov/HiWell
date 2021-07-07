@@ -12,14 +12,14 @@ This repo includes Vanilla and Spigot Minecraft server CLI and ruby API wrappers
 
 ###### Download server file:
 ```sh
-ruby/bin/vanilla-cli download_vanilla_server --version 1.17 --destination .
+ruby/bin/vanilla-cli download_server --version 1.17 --destination .
 ```
 
 ### Spigot
 
 ###### Download Spigot Build Tools:
 ```sh
-ruby/bin/spigot-cli download_spigot_build_tools --version 1.17 --destination .
+ruby/bin/spigot-cli download_build_tools --version 1.17 --destination .
 ```
 
 ###### Download Spigot plugins:
@@ -31,7 +31,7 @@ plugins:
 ```
 
 ```sh
-ruby/bin/spigot-cli download_spigot_plugins --destination ./plugins
+ruby/bin/spigot-cli download_plugins --destination ./plugins
 ```
 
 ## Deployment
