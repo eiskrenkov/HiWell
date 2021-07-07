@@ -10,14 +10,14 @@ module Minecraft
       def download_build_tools
         fetch_minecraft_version!(options[:version])
 
-        download_file(Configuration.minecraft.spigot.build_tools_url, options[:destination])
+        download_file(Minecraft.configuration.spigot.build_tools_url, options[:destination])
       end
 
       option :destination, required: true
       desc 'download_plugins --destination /downloads/plugins',
            'Validate Minecraft version and download Spigot build tools'
       def download_plugins
-        Minecraft::Plugins::Downloader.new(Configuration.minecraft.spigot.plugins.to_h, options[:destination]).call
+        Minecraft::Plugins::Downloader.new(Minecraft.configuration.spigot.plugins.to_h, options[:destination]).call
       end
     end
   end

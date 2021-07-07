@@ -5,7 +5,7 @@ module Network
     class Mojang < Network::APIClient::Base
       def version_manifest
         handle_errrors({}) do
-          get(Configuration.minecraft.vanilla.version_manifest_url)
+          get(Minecraft.configuration.vanilla.version_manifest_url)
         end
       end
     end

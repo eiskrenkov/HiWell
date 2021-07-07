@@ -45,7 +45,7 @@ module Minecraft
       end
 
       def build_download_url(resource_id)
-        "#{Configuration.minecraft.spigot.spiget.api_host}/resources/#{resource_id}/download"
+        "#{Minecraft.configuration.spigot.spiget.api_host}/resources/#{resource_id}/download"
       end
 
       def build_resource_filename(resource_name)

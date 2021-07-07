@@ -27,7 +27,7 @@ module Network
       private
 
       def host
-        Configuration.minecraft.spigot.spiget.api_host
+        Minecraft.configuration.spigot.spiget.api_host
       end
 
       def setup_connection(connection)

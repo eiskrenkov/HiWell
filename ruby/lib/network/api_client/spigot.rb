@@ -5,7 +5,7 @@ module Network
     class Spigot < Network::APIClient::Base
       def build_tools
         handle_errrors({}) do
-          get(Configuration.minecraft.spigot.build_tools_url)
+          get(Minecraft.configuration.spigot.build_tools_url)
         end
       end
     end
