@@ -1,4 +1,4 @@
-# HiWell - 1.17 Spigot Minecraft Server
+# HiWell - Spigot Minecraft Server
 IP - minecraft.iskrenkov.com, you must be whitelisted to join
 
 ## Ruby
@@ -12,14 +12,20 @@ This repo includes Vanilla and Spigot Minecraft server CLI and ruby API wrappers
 
 ###### Download server file:
 ```sh
-ruby/bin/vanilla-cli download_server --version 1.17 --destination .
+$ ruby/bin/vanilla-cli download_server --version 1.17 --destination .
+```
+
+###### Fetch latest vanilla Minecraft version
+```sh
+$ ruby/bin/vanilla-cli latest_version
+Latest Vanilla Minecraft version is 1.17.1
 ```
 
 ### Spigot
 
 ###### Download Spigot Build Tools:
 ```sh
-ruby/bin/spigot-cli download_build_tools --version 1.17 --destination .
+$ ruby/bin/spigot-cli download_build_tools --version 1.17 --destination .
 ```
 
 ###### Download Spigot plugins:
@@ -31,12 +37,12 @@ plugins:
 ```
 
 ```sh
-ruby/bin/spigot-cli download_plugins --destination ./plugins
+$ ruby/bin/spigot-cli download_plugins --destination ./plugins
 ```
 
 ## Deployment
 Using [Anchor](https://github.com/eiskrenkov/anchor)
 
 ```sh
-anchor deploy --stage production [--no-build] [--no-push]
+$ anchor deploy --stage production [--no-build] [--no-push]
 ```
