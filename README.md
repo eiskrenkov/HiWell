@@ -1,24 +1,32 @@
 # HiWell - Spigot Minecraft Server
-IP - minecraft.iskrenkov.com, you must be whitelisted to join
+Use `minecraft.iskrenkov.com` to connect
 
 ## Ruby
 This repo includes Vanilla and Spigot Minecraft server CLI and ruby API wrappers
 
+### Tools
+
+###### Fetch latest known Minecraft version:
+```sh
+$ ruby/bin/tools latest_version
+Latest Vanilla Minecraft version is 1.18.1
+```
+
+###### Backup current world
+```sh
+$ ruby/bin/tools backup --stage production --destination ~/Desktop/hiwell_backups
+```
+It will download `world`, `world_nether`, `world_the_end` and `usercache.json` from the server into specified location
+
 ### Vanilla
+###### Download server file:
 ```ruby
 > Minecraft::Version.latest.meta.server_file_url
 => "https://launcher.mojang.com/v1/objects/0a269b5f2c5b93b1712d0f5dc43b6182b9ab254e/server.jar"
 ```
 
-###### Download server file:
 ```sh
 $ ruby/bin/vanilla-cli download_server --version 1.17 --destination .
-```
-
-###### Fetch latest vanilla Minecraft version
-```sh
-$ ruby/bin/vanilla-cli latest_version
-Latest Vanilla Minecraft version is 1.17.1
 ```
 
 ### Spigot

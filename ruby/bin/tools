@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'bundler/setup'
-require 'pry'
-
 require_relative '../lib/minecraft'
 
-Pry.start
+Minecraft::CLI::Tools.start(ARGV)

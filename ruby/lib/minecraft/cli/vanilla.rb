@@ -15,11 +15,6 @@ module Minecraft
 
         download_file(server_file_url, options[:destination])
       end
-
-      desc 'latest_version', 'Prints the latest available Minecraft version'
-      def latest_version
-        puts "Latest Vanilla Minecraft version is #{Minecraft::Version.latest.data.fetch(:id)}"
-      end
     end
   end
 end

@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require './lib/minecraft'
+require_relative '../lib/minecraft'
 
 Minecraft::CLI::Vanilla.start(ARGV)

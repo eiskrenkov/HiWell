@@ -1,4 +1,5 @@
 minecraft:
+  volume_path: /var/lib/docker/volumes/hiwell_universe/_data/
   vanilla:
     version_manifest_url: https://launchermeta.mojang.com/mc/game/version_manifest.json
   spigot:
