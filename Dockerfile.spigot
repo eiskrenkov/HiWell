@@ -16,7 +16,7 @@ RUN bin/spigot-cli download_build_tools --version $MINECRAFT_VERSION --destinati
     bin/spigot-cli download_plugins --destination /downloads/plugins
 
 # Step 2 - Build Spigot
-FROM openjdk:16-alpine3.13 AS build
+FROM openjdk:17-alpine3.13 AS build
 
 ARG MINECRAFT_VERSION
 
@@ -30,7 +30,7 @@ RUN git config --global --unset core.autocrlf & \
     java -jar BuildTools.jar --rev $MINECRAFT_VERSION
 
 # Step 3 - Run server
-FROM openjdk:16-alpine3.13
+FROM openjdk:17-alpine3.13
 
 ARG MINECRAFT_VERSION
 

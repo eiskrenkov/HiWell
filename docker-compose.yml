@@ -2,12 +2,12 @@ version: '3.9'
 
 services:
   minecraft:
-    image: ghcr.io/eiskrenkov/hiwell:1.17.1-spigot
+    image: ghcr.io/eiskrenkov/hiwell:1.18.1-spigot
     build:
       context: .
       dockerfile: Dockerfile.spigot
       args:
-        MINECRAFT_VERSION: '1.17.1'
+        MINECRAFT_VERSION: '1.18.1'
     env_file:
       - .env
     ports:
