@@ -1,6 +1,5 @@
 root: /root/hiwell
 required_files:
-  - whitelist.json
   - ops.json
   - banned-ips.json
 

@@ -15,7 +15,6 @@ services:
     volumes:
       - universe:/minecraft/universe
 
-      - ./whitelist.json:/minecraft/whitelist.json
       - ./ops.json:/minecraft/ops.json
       - ./banned-ips.json:/minecraft/banned-ips.json
 
