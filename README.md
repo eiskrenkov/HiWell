@@ -1,5 +1,5 @@
 # HiWell - Spigot Minecraft Server
-Use `minecraft.iskrenkov.com` to connect
+Use `mc.iskrenkov.me` to connect
 
 ## Ruby
 This repo includes Vanilla and Spigot Minecraft server CLI and ruby API wrappers
