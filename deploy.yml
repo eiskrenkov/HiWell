@@ -6,7 +6,7 @@ required_files:
 stages:
   production:
     user: root
-    host: minecraft.iskrenkov.com
+    host: mc.iskrenkov.me
     docker:
       compose:
         filename: docker-compose-production.yml

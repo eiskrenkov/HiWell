@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   minecraft:
-    image: ghcr.io/eiskrenkov/hiwell:1.18.1-spigot
+    image: ghcr.io/eiskrenkov/hiwell:1.0.0-spigot-1.18.1
     env_file:
       - .env
     ports:
