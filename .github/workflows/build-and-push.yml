@@ -28,4 +28,4 @@ jobs:
         with:
           file: Dockerfile.spigot
           push: true
-          tags: eiskrenkov/hiwell:latest
+          tags: ghcr.io/eiskrenkov/hiwell:latest
