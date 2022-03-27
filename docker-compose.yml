@@ -14,8 +14,8 @@ services:
     volumes:
       - universe:/minecraft/universe
 
-      - ./ops.json:/minecraft/ops.json
-      - ./banned-ips.json:/minecraft/banned-ips.json
+      - /root/hiwell/ops.json:/minecraft/ops.json
+      - /root/hiwell/banned-ips.json:/minecraft/banned-ips.json
 
 volumes:
   universe:
