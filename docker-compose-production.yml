@@ -8,7 +8,7 @@ services:
     ports:
       - 25565:25565
     volumes:
-      - universe:/hiwell/universe
+      - universe:/minecraft/universe
 
       - /root/hiwell/ops.json:/minecraft/ops.json
       - /root/hiwell/banned-ips.json:/minecraft/banned-ips.json
