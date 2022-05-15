@@ -1,3 +1,5 @@
+![mc.iskrenkov.me](https://img.shields.io/endpoint?url=https%3A%2F%2Fminecraft-server-status-badge.vercel.app%2Fapi%2Fserver%2Fmc.iskrenkov.me%3Fport%3D25565)
+
 # HiWell - Spigot Minecraft Server
 Use `mc.iskrenkov.me` to connect
 

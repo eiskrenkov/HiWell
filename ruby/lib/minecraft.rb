@@ -13,26 +13,13 @@ require_relative 'minecraft/plugins'
 require_relative 'minecraft/backuper'
 
 module Minecraft
-  CONFIGURATION_FILE = 'configuration.yml'
-  DEPLOY_CONFIGURATION_FILE = 'deploy.yml'
+  module_function
 
-  class << self
-    def configuration
-      @configuration ||= OpenConfig::YAML.new(root: ruby_root, file: CONFIGURATION_FILE).minecraft
-    end
+  def configuration
+    @configuration ||= OpenConfig::YAML.new('configuration.yml').minecraft
+  end
 
-    def deploy_configuration
-      @deploy_configuration ||= OpenConfig::YAML.new(root: root, file: DEPLOY_CONFIGURATION_FILE)
-    end
-
-    private
-
-    def root
-      File.expand_path('../..', __dir__)
-    end
-
-    def ruby_root
-      File.expand_path('..', __dir__)
-    end
+  def deploy_configuration
+    @deploy_configuration ||= OpenConfig::YAML.new('../deploy.yml')
   end
 end
