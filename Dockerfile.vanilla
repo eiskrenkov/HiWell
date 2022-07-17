@@ -15,7 +15,7 @@ RUN chmod +x bin/vanilla-cli && \
     bin/vanilla-cli download_server --version $MINECRAFT_VERSION --destination /downloads
 
 # Step 2
-FROM openjdk:17-slim-buster
+FROM openjdk:18-slim-buster
 
 WORKDIR /minecraft
 COPY --from=server-download /downloads/server.jar .
