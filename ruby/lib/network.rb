@@ -12,7 +12,7 @@ module Network
 
   class << self
     def logger
-      @logger ||= Logger.new(STDOUT)
+      @logger ||= Logger.new(ENV['VERBOSE'] ? STDOUT : IO::NULL)
     end
 
     def download(url, destination, filename = nil)

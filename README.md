@@ -11,7 +11,7 @@ This repo includes Vanilla and Spigot Minecraft server CLI and ruby API wrappers
 ###### Fetch latest known Minecraft version:
 ```sh
 $ ruby/bin/tools latest_version
-Latest Vanilla Minecraft version is 1.18.1
+Latest Vanilla Minecraft version is 1.19
 ```
 
 ###### Backup current world

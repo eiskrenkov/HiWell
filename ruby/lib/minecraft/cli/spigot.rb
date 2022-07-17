@@ -15,9 +15,16 @@ module Minecraft
 
       option :destination, required: true
       desc 'download_plugins --destination /downloads/plugins',
-           'Validate Minecraft version and download Spigot build tools'
+           'Download plugins configured in configuration.yml'
       def download_plugins
         Minecraft::Plugins::Downloader.new(Minecraft.configuration.spigot.plugins.to_h, options[:destination]).call
+      end
+
+      option :name, required: true
+      desc 'find_latest_plugin_version --name skisrestorer',
+           'Find latest plugin version'
+      def find_latest_plugin_version
+        Minecraft::Plugins::LatestVersionSearch.new(options[:name]).call
       end
     end
   end
