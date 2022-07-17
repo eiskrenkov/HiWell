@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   hiwell:
-    image: ghcr.io/eiskrenkov/hiwell:latest
+    image: ghcr.io/eiskrenkov/hiwell:spigot-1.19
     env_file:
       - .env
     ports:
