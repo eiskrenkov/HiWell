@@ -3,6 +3,8 @@
 module Minecraft
   module Plugins
     class LatestVersionSearch
+      class Error < StandardError; end
+
       attr_reader :name
 
       def initialize(name)

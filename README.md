@@ -38,6 +38,12 @@ $ ruby/bin/vanilla-cli download_server --version 1.17 --destination .
 $ ruby/bin/spigot-cli download_build_tools --version 1.17 --destination .
 ```
 
+###### Find latest plugin version:
+```sh
+$ ruby/bin/spigot-cli find_latest_plugin_version --name skinsrestorer
+Latest version of SkinsRestorer is 14.2.3 (uuid: 003acc70-806f-550f-0039-991c3c35e3fa, id: 464299)
+```
+
 ###### Download Spigot plugins:
 configuration.yml
 
