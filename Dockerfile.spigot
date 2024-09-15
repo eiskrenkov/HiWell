@@ -18,7 +18,7 @@ RUN bin/spigot-cli download_build_tools --version $MINECRAFT_VERSION --destinati
     bin/spigot-cli download_plugins --destination /downloads/plugins
 
 # Step 2 - Build Spigot
-FROM openjdk:18-alpine3.15 AS build
+FROM eclipse-temurin:22-jdk-alpine AS build
 
 ARG MINECRAFT_VERSION
 
@@ -32,7 +32,7 @@ RUN git config --global --unset core.autocrlf & \
     java -jar BuildTools.jar --rev $MINECRAFT_VERSION
 
 # Step 3 - Run server
-FROM openjdk:18-alpine3.15
+FROM eclipse-temurin:22-jre-alpine
 
 ARG MINECRAFT_VERSION
 
