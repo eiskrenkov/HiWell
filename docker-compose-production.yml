@@ -7,9 +7,12 @@ services:
       - .env
     ports:
       - 25565:25565
+    stdin_open: true
+    tty: true
     volumes:
       - universe:/minecraft/universe
 
+      - ./whitelist.json:/minecraft/whitelist.json
       - /root/hiwell/ops.json:/minecraft/ops.json
       - /root/hiwell/banned-ips.json:/minecraft/banned-ips.json
 
