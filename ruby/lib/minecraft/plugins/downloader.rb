@@ -19,12 +19,10 @@ module Minecraft
           resource = find_resource(name)
           raise Error, "Couldn't find #{name} plugin" unless resource
 
+          binding.irb
+
           version = find_version(resource.id, version)
           raise Error, "Couldn't find #{name} v#{version}" unless version
-
-          unless resource.version.fetch(:uuid) == version.uuid
-            raise Error, "Version #{version} doesn't have external URL"
-          end
 
           download(name, resource.id)
         end

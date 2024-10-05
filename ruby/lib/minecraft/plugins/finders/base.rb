@@ -21,6 +21,7 @@ module Minecraft
 
         def find_exact_match
           perform_search.find do |search_result|
+            binding.irb
             values = search_result.values_at(*search_conditions.keys).map do |value|
               value.is_a?(String) ? value.downcase : value
             end

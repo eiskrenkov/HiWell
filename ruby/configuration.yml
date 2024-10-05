@@ -7,4 +7,4 @@ minecraft:
     spiget:
       api_host: https://api.spiget.org/v2
     plugins:
-      skinsrestorer: '15.4.2'
+      skinsrestorer: '15.4.3'
