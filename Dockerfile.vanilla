@@ -1,4 +1,4 @@
-ARG MINECRAFT_VERSION=1.21.3
+ARG MINECRAFT_VERSION=1.21.4
 
 # Step 1
 FROM ruby:3.0.0-alpine AS server-download
